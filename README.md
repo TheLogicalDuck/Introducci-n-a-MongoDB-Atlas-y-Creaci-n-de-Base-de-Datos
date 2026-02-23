@@ -9,7 +9,7 @@
 En esta práctica se realizó la introducción al ecosistema de **MongoDB Atlas**, el servicio en la nube oficial para gestionar bases de datos NoSQL. El objetivo principal fue comprender la diferencia entre bases de datos relacionales y las orientadas a documentos, así como configurar un entorno de desarrollo en la nube.
 
 Todo el proceso consistió en:
-1.  **Creación de Cuenta y Proyecto:** Se registró una cuenta institucional y se configuró un proyecto llamado `Practica1_[Nombre]`.
+1.  **Creación de Cuenta y Proyecto:** Se registró una cuenta institucional y se configuró un proyecto llamado `Practica1Carrillohernandez`.
 2.  **Despliegue del Clúster:** Se configuró un clúster gratuito (M0 Sandbox) utilizando AWS como proveedor de nube.
 3.  **Seguridad:** Se establecieron las reglas de acceso, creando un usuario administrador de base de datos y configurando la lista blanca de IP (Network Access) para permitir conexiones remotas.
 4.  **Gestión de Datos:** Se creó la base de datos `Practica1BD` y la colección `estudiantes`, donde se realizaron operaciones de manipulación de datos directamente desde la interfaz gráfica de Atlas (Data Explorer).
