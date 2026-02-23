@@ -62,7 +62,7 @@ Es la acción de borrar registros de la base de datos de forma permanente.
 <img width="1169" height="280" alt="Usuario configurado" src="https://github.com/user-attachments/assets/adafa6ae-cf75-4bf9-b5ed-b21ba03007fc" />
 
 
-🔎 SECCIÓN A — ANÁLISIS Y DISEÑO
+### 🔎 SECCIÓN A — ANÁLISIS Y DISEÑO
 🧠 Actividad 1 — Pensamiento estructural
 ¿Qué problema resolverá tu base de datos?
 Resolverá la necesidad de gestionar la información académica y administrativa de los estudiantes de un plantel, permitiendo un acceso rápido a sus datos personales, materias cursadas y estatus actual.
@@ -85,7 +85,7 @@ Porque un estudiante cursa más de una materia a la vez. Un array (arreglo) nos 
 Porque el estado de un alumno es binario: o está activo (True) o dado de baja (False). Es el tipo de dato más eficiente para este tipo de validaciones lógicas.
 ¿Por qué no usamos esquema rígido como en SQL?
 Para tener flexibilidad. En el futuro podríamos necesitar agregar un campo nuevo solo a algunos alumnos (como "beca" o "tutor") y MongoDB nos permite hacerlo sin romper la base de datos ni tener que rediseñar toda la estructura, cosa que en SQL sería muy complejo.
-☁ SECCIÓN B — IMPLEMENTACIÓN EN MONGODB ATLAS
+### ☁ SECCIÓN B — IMPLEMENTACIÓN EN MONGODB ATLAS
 🔧 Actividad 3 — Creación Técnica (Explicaciones)
 ¿Qué es un cluster?
 Es un conjunto de servidores (nodos) que trabajan juntos para alojar la base de datos. En MongoDB, un cluster asegura que si un servidor falla, otro tome su lugar (alta disponibilidad) y permite distribuir la carga de datos.
@@ -93,7 +93,7 @@ Es un conjunto de servidores (nodos) que trabajan juntos para alojar la base de 
 Porque es un servicio gestionado en la nube. Nosotros no nos preocupamos por instalar el software, actualizar servidores, configurar la seguridad física o hacer copias de seguridad manuales; MongoDB Atlas (el proveedor) se encarga de toda la infraestructura y nosotros solo "consumimos" el servicio de base de datos.
 ¿Qué ventaja tiene trabajar en la nube?
 Accesibilidad (puedes conectarte desde cualquier lugar), escalabilidad (puedes aumentar la potencia con un clic), seguridad gestionada y ahorro de costos al no tener que comprar y mantener servidores físicos propios.
-🧩 SECCIÓN C — INSERCIÓN ELEMENTO POR ELEMENTO
+### 🧩 SECCIÓN C — INSERCIÓN ELEMENTO POR ELEMENTO
 🔹 Actividad 4 — Insertar Documento 1
 ¿Qué hace use?
 Es el comando que selecciona la base de datos con la que vamos a trabajar. Si la base de datos no existe, prepara el contexto para crearla en cuanto insertemos el primer dato.
@@ -106,7 +106,7 @@ Significa Binary JSON. Es el formato interno que usa MongoDB para guardar los da
 Porque es una base de datos sin esquema (schema-less) o de esquema dinámico. Cada documento es independiente; el estudiante A puede tener el campo "beca" y el estudiante B no tenerlo, y ambos conviven en la misma colección sin problemas.
 ¿Qué pasaría en SQL si agregas un nuevo campo?
 Tendrías que ejecutar un comando ALTER TABLE para modificar la estructura de toda la tabla. Esto obligaría a que todos los registros existentes tengan ese campo (rellenándolos con NULL), lo cual es más rígido y costoso computacionalmente.
-🔎 SECCIÓN D — CONSULTAS INTELIGENTES
+### 🔎 SECCIÓN D — CONSULTAS INTELIGENTES
 🔹 Actividad 7 — Consultas con Operadores
 ¿Qué significa $gt?
 Significa Greater Than (Mayor que, >). Se usa para buscar valores estrictamente mayores al número indicado.
@@ -114,7 +114,7 @@ Significa Greater Than (Mayor que, >). Se usa para buscar valores estrictamente 
 Significa Greater Than or Equal (Mayor o igual que, >=). Incluye el valor exacto que estás buscando y los superiores.
 ¿Qué son operadores de comparación?
 Son comandos especiales (que empiezan con $) utilizados en las consultas para filtrar documentos basándose en comparaciones de valores (mayor, menor, igual, diferente, etc.), permitiendo búsquedas más precisas que una simple igualdad.
-🔄 SECCIÓN E — ACTUALIZACIONES CONTROLADAS
+### 🔄 SECCIÓN E — ACTUALIZACIONES CONTROLADAS
 🔹 Actividad 8 — updateOne()
 ¿Qué hace $set?
 Es un operador atómico que indica que solo queremos modificar o agregar el campo especificado, manteniendo el resto de la información del documento intacta.
@@ -122,7 +122,7 @@ Es un operador atómico que indica que solo queremos modificar o agregar el camp
 En una actualización (dependiendo del comando exacto, como en versiones antiguas o replaceOne), si no usas operadores de actualización, podrías correr el riesgo de reemplazar todo el documento por solo el campo que enviaste, borrando el resto de los datos (nombre, edad, etc.). $set protege la integridad del resto del documento.
 Diferencia entre updateOne y updateMany:
 updateOne busca y modifica solo el primer documento que coincida con el criterio de búsqueda. updateMany modifica todos los documentos que cumplan con el criterio.
-❌ SECCIÓN F — ELIMINACIÓN RESPONSABLE
+### ❌ SECCIÓN F — ELIMINACIÓN RESPONSABLE
 🔹 Actividad 9 — deleteOne()
 ¿Qué riesgos tiene eliminar datos sin respaldo?
 La pérdida permanente de información. En bases de datos, normalmente no hay un botón de "deshacer" (Ctrl+Z). Si borras un alumno por error y no tienes respaldo, esa información desaparece para siempre.
@@ -130,33 +130,19 @@ La pérdida permanente de información. En bases de datos, normalmente no hay un
 Hacer una consulta (find) primero con los mismos criterios para verificar qué datos se van a borrar.
 Tener copias de seguridad (backups) recientes.
 Usar "Borrado Lógico" (Soft Delete): en lugar de usar deleteOne, actualizar el campo activo: false. Así el dato no se ve, pero sigue existiendo por seguridad.
-🧠 SECCIÓN G — ANÁLISIS COMPARATIVO
+### 🧠 SECCIÓN G — ANÁLISIS COMPARATIVO
 Actividad 10 — Comparación SQL vs NoSQL
 
 <img width="800" height="203" alt="image" src="https://github.com/user-attachments/assets/7f6534cd-3ab5-4ed1-90b1-320b67d7f6e7" />
 
-📊 SECCIÓN H — RETO AVANZADO
+### 📊 SECCIÓN H — RETO AVANZADO
 Documento anidado
 ¿Qué es un documento anidado?
 Es tener un documento (objeto JSON) dentro de otro documento. Por ejemplo, el campo contacto no es un simple texto, sino que dentro tiene { telefono: "...", correo: "..." }. Es una jerarquía padre-hijo dentro del mismo registro.
 ¿Qué ventaja tiene frente a relaciones JOIN?
 El rendimiento (velocidad). En SQL, para obtener los datos del alumno y su contacto, la base de datos tiene que buscar en dos tablas diferentes y unirlas (JOIN), lo cual consume recursos. En MongoDB, al tener el documento anidado, obtienes toda la información en una sola lectura, siendo mucho más rápido.
 
-db.estudiantes.insertOne({
-  matricula: "2026010",
-  nombre: "Laura Díaz",
-  edad: 18,
-  grupo: "4010",
-  especialidad: "Programación",
-  contacto: {
-    telefono: "5512345678",
-    correo: "laura@email.com"
-  },
-  materias: [
-    { nombre: "Base de Datos", calificacion: 9 },
-    { nombre: "Web", calificacion: 8 }
-  ],
-  activo: true
-})
+<img width="556" height="349" alt="image" src="https://github.com/user-attachments/assets/a9243d5b-17c4-4152-9dda-cb4e4f405c59" />
+
 
 "Durante esta práctica aprendí que MongoDB cambia el paradigma de 'normalización' que usamos en SQL. En lugar de dividir la información en muchas tablas para evitar duplicidad, MongoDB prioriza la forma en que accedemos a los datos. Si siempre necesito ver las materias junto con el alumno, es mejor tenerlas anidadas en un Array o subdocumento. Esto hace que las aplicaciones web modernas sean mucho más rápidas, ya que la base de datos entrega la información lista para ser consumida en formato JSON, que es el estándar de la web."
